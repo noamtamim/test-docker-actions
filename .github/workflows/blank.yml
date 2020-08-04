@@ -31,6 +31,8 @@ jobs:
     # Runs a single command using the runners shell
     - name: Run
       run: |
+        echo TOKEN: ${{ github.event.inputs.token }}
+        env
         ls -l
         ls -l /
         python -V
