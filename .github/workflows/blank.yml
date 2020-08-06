@@ -14,7 +14,9 @@ jobs:
       with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    - run: git clone git@github.com:kaltura/datalake-etl.git
+    - run: |
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+        git clone git@github.com:kaltura/datalake-etl.git
     - name: Run
       run: |
         mkdir -p ~/.cache/pip
