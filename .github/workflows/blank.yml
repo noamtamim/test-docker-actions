@@ -12,15 +12,8 @@ jobs:
     steps:
     - name: Run
       run: |
+        mkdir -p /github/home/.cache/pip
         python -V
         pip install --upgrade pip
         pip install six
         echo pip cache dir: $(pip cache dir)
-        whoami
-        id
-        stat /github
-        ls -l /github
-        ls -l /github/home
-        mkdir -p /github/home/.cache/pip
-        ls -l /github/home/.cache
-        ls -l /github/home/.cache/pip
