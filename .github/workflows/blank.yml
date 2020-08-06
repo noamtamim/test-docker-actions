@@ -16,7 +16,8 @@ jobs:
         python -V
         pip install --upgrade pip
         pip install six
-        env
+        id
+        stat /github
         ls -l /github
         ls -l /github/home
         ls -l /github/home/.cache
