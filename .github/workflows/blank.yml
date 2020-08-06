@@ -10,16 +10,17 @@ jobs:
     container: lambci/lambda:build-python3.6
 
     steps:
-    - uses: webfactory/ssh-agent@v0.4.0
-      with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - run: cat ~/.ssh/known_hosts
+      - uses: webfactory/ssh-agent@v0.4.0
+        with:
+            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    - run: |
-        ssh-keyscan github.com >> ~/.ssh/known_hosts
-        cat ~/.ssh/known_hosts
-    - run: git clone git@github.com:kaltura/datalake-etl.git
-    - name: Run
-      run: |
-        mkdir -p ~/.cache/pip
-        pip install --upgrade pip
-        pip install six
+      - run: |
+          #ssh-keyscan github.com >> ~/.ssh/known_hosts
+          cat ~/.ssh/known_hosts
+      - run: git clone git@github.com:kaltura/datalake-etl.git
+      - name: Run
+        run: |
+          mkdir -p ~/.cache/pip
+          pip install --upgrade pip
+          pip install six
