@@ -12,10 +12,12 @@ jobs:
     steps:
     - name: Run
       run: |
+        set -x
         python -V
         pip install --upgrade pip
         pip install six
         env
-        ls -l
-        ls -l /
         ls -l /github
+        ls -l /github/home
+        ls -l /github/home/.cache
+        ls -l /github/home/.cache/pip
