@@ -12,6 +12,7 @@ jobs:
     steps:
     - name: Run
       run: |
+        echo $HOME
         echo "~/.cache/pip"
         python -V
         mkdir -p "/github/home/.cache/pip"
